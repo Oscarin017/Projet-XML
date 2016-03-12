@@ -1,3 +1,8 @@
+bikee_shop_api:
+    resource: "@BikeeShopAPIBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
