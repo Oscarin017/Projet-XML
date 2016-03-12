@@ -1,6 +1,6 @@
 <?php 
 
-namespace Shoefony\StoreBundle\Entity;
+namespace BikeeShop\APIBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
@@ -48,30 +48,37 @@ class client
 	*/
 	private $email;
 
-
-	public function getEmail(){
+	public function getEmail()
+	{
 		return $this->email;
 	}
-	public function getLastName(){
+	public function getLastName()
+	{
 		return $this->lastName;
 	}
-	public function getFirstName(){
+	public function getFirstName()
+	{
 		return $this->firstName;
 	}
-	public function getId(){
+	public function getId()
+	{
 		return $this->id;
 	}
 
-	public function setEmail($email){
+	public function setEmail($email)
+	{
 		$this->email = $email;
 	}
-	public function setLastName($lastName){
+	public function setLastName($lastName)
+	{
 		$this->lastName = $lastName;
 	}
-	public function setFirstName($firstName){
+	public function setFirstName($firstName)
+	{
 		$this->firstName = $firstName;
 	}	
-	public function setId($id){
+	public function setId($id)
+	{
 		$this->id = $id;
 	}
 }

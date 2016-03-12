@@ -16,15 +16,27 @@
 		* @ORM\GeneratedValue(strategy="AUTO")
 		*/
 		private $id;
+
+		/**
+		* @ORM\Column(name="total", type="decimal", scale=2, nullable=false)
+		*/
+		private $total;
+
 		/**
 		* @ORM\Column(name="create_at", type="datetime", nullable=false)
 		*/
 		private $createAt;
 
 		/**
-		* @ORM\OneToMany(targetEntity="BikeeShop\APIBundle\Entity\SaleDetail", mappedBy="category")
+		* @ORM\OneToOne(targetEntity="BikeeShop\APIBundle\Entity\Client", cascade={"persist"})
+		* @ORM\JoinColumn(nullable=false)
 		*/
-		private $saleDetais;
+		private $client;
+
+		/**
+		* @ORM\OneToMany(targetEntity="BikeeShop\APIBundle\Entity\SaleDetail", mappedBy="sale")
+		*/
+		private $saleDetails;
 
 		public function __construct()
 		{
@@ -42,6 +54,16 @@
 			$this->id = $id;
 		}
 
+		public function getTotal()
+		{
+			return $this->total;
+		} 
+
+		public function setTotal($total)
+		{
+			$this->total = $total;
+		}
+
 		public function getCreateAt()
 		{
 			return $this->createAt;
@@ -50,6 +72,16 @@
 		public function setCreateAt($createAt)
 		{
 			$this->createAt = $createAt;
+		}
+
+		public function getClient()
+		{
+			return $this->client;
+		} 
+
+		public function setClient($client)
+		{
+			$this->client = $client;
 		}
 
 		public function addSaleDetail(\BikeeShop\APIBundle\Entity\SaleDetail $saleDetail)
@@ -63,7 +95,7 @@
 			$this->saleDetails->removeElement($saleDetail);
 		}
 
-		public function getSaleDetails())
+		public function getSaleDetails()
 		{
 			return $this->saleDetails;
 		}
